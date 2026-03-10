@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ViBo",
+  "version": "0.1.0",
+  "identifier": "com.vibo.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "title": "ViBo",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 380,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: asset: https://asset.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "android": {
+      "minSdkVersion": 31
+    },
+    "iOS": {
+      "minimumSystemVersion": "16.0"
+    }
+  },
+  "plugins": {
+    "sql": {
+      "preloadConnections": [
+        "sqlite:vibo.db"
+      ]
+    },
+    "fs": {
+      "scope": {
+        "allow": ["$APPDATA/**", "$DOCUMENT/**", "$HOME/ViBo/**"],
+        "deny": []
+      }
+    },
+    "http": {
+      "scope": {
+        "allow": [
+          "https://api.anthropic.com/**",
+          "https://openrouter.ai/**",
+          "https://api.moonshot.cn/**",
+          "https://accounts.google.com/**",
+          "https://oauth2.googleapis.com/**",
+          "https://www.googleapis.com/**",
+          "https://leap.liquid.ai/**"
+        ]
+      }
+    }
+  }
+}
