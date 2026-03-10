@@ -1,0 +1,21 @@
+# .cargo/config.toml — Rust build configuration for ViBo
+# Lives at repo root (next to src-tauri/).
+#
+# FLAG 5 FIX: 16KB memory page alignment
+# Required for Android API 35+ (Pixel 9+) and mandatory for Play Store.
+# Without this flag the app crashes on new devices and is rejected at upload.
+# Aligns ELF segments to 16384 bytes instead of the default 4096.
+
+[target.aarch64-linux-android]
+rustflags = ["-C", "link-arg=-Wl,-z,max-page-size=16384"]
+
+[target.x86_64-linux-android]
+rustflags = ["-C", "link-arg=-Wl,-z,max-page-size=16384"]
+
+[target.armv7-linux-androideabi]
+rustflags = ["-C", "link-arg=-Wl,-z,max-page-size=16384"]
+
+# Desktop targets — no page alignment needed
+[target.x86_64-unknown-linux-gnu]
+[target.x86_64-apple-darwin]
+[target.aarch64-apple-darwin]
