@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 95%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 92%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 96%;
+    --popover-foreground: 0 0% 15%;
+
+    --primary: 0 0% 25%;
+    --primary-foreground: 0 0% 95%;
+
+    --secondary: 0 0% 88%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 20%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 0 0% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 93%;
+    --sidebar-foreground: 0 0% 35%;
+    --sidebar-primary: 0 0% 25%;
+    --sidebar-primary-foreground: 0 0% 95%;
+    --sidebar-accent: 0 0% 87%;
+    --sidebar-accent-foreground: 0 0% 25%;
+    --sidebar-border: 0 0% 82%;
+    --sidebar-ring: 0 0% 30%;
+
+    --shadow-ambient: 0 4px 24px -4px hsla(0, 0%, 0%, 0.08);
+    --shadow-elevated: 0 8px 32px -8px hsla(0, 0%, 0%, 0.12), 0 2px 8px -2px hsla(0, 0%, 0%, 0.06);
+    --shadow-floating: 0 16px 48px -12px hsla(0, 0%, 0%, 0.18), 0 4px 16px -4px hsla(0, 0%, 0%, 0.08);
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 88%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 0 0% 78%;
+    --primary-foreground: 0 0% 8%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 80%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 50%;
+
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 75%;
+
+    --destructive: 0 55% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 70%;
+
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: 0 0% 65%;
+    --sidebar-primary: 0 0% 78%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 0 0% 70%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 0% 70%;
+
+    --shadow-ambient: 0 4px 24px -4px hsla(0, 0%, 0%, 0.3);
+    --shadow-elevated: 0 8px 32px -8px hsla(0, 0%, 0%, 0.4), 0 2px 8px -2px hsla(0, 0%, 0%, 0.2);
+    --shadow-floating: 0 16px 48px -12px hsla(0, 0%, 0%, 0.5), 0 4px 16px -4px hsla(0, 0%, 0%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-area-all {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .shadow-ambient {
+    box-shadow: var(--shadow-ambient);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+
+  .card-3d {
+    @apply bg-card border border-border shadow-ambient;
+    background: linear-gradient(
+      145deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--muted)) 100%
+    );
+  }
+
+  .card-3d-elevated {
+    @apply bg-card border border-border shadow-elevated;
+    background: linear-gradient(
+      145deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--accent)) 50%,
+      hsl(var(--muted)) 100%
+    );
+  }
+}
