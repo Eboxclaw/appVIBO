@@ -87,7 +87,7 @@ npm run deploy:ci
 npm run preview:worker
 ```
 
-The Worker name is configured as `vibo` (Cloudflare requires lowercase, alphanumeric plus dashes), and SPA routing is enabled via `assets.not_found_handling = "single-page-application"`.
+The Worker name is configured as `appviboai` (Cloudflare requires lowercase, alphanumeric plus dashes), and SPA routing is enabled via `assets.not_found_handling = "single-page-application"`.
 
 ## Can I connect a custom domain to my Lovable project?
 
